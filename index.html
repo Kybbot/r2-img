@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>R2</title>
+	</head>
+	<body>
+		<form id="uploadFileForm" enctype="multipart/form-data">
+			<h2>Upload image</h2>
+			<input id="fileInput" type="file" accept="image/*" required />
+			<br />
+			<br />
+			<button type="submit">Upload</button>
+			<p id="formError"></p>
+		</form>
+
+		<hr />
+
+		<section>
+			<h2>List of files</h2>
+			<div id="listSection">
+				<p>Loading</p>
+			</div>
+		</section>
+
+		<script type="module" src="./src/main.js"></script>
+	</body>
+</html>
