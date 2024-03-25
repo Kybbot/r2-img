@@ -122,11 +122,11 @@ const getPresignedUrlForPost = async (fileName) => {
 	}
 };
 
-const uploadFileToR2 = async (url, fileType) => {
+const uploadFileToR2 = async (url, file, fileType) => {
 	try {
 		const response = await fetch(url, {
 			method: "PUT",
-			body: new FormData(uploadFileForm),
+			body: file,
 			headers: {
 				"ngrok-skip-browser-warning": "69420",
 				"Content-Type": fileType,
@@ -152,10 +152,7 @@ uploadFileForm.addEventListener("submit", async (event) => {
 		const presignedUrl = await getPresignedUrlForPost(file.name);
 
 		if (presignedUrl) {
-			const formData = new FormData();
-			formData.append("file", file);
-
-			await uploadFileToR2(presignedUrl, file.type);
+			await uploadFileToR2(presignedUrl, file, file.type);
 
 			renderListOfFiles();
 		}
